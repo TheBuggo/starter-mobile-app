@@ -217,7 +217,6 @@ Before shipping an adapted app:
 - Add real Apple/Google product IDs and receipt validation.
 - Add OAuth redirect handling and backend token exchange before enabling provider
   connections.
-- Add a `LICENSE` file if this public repository should grant reuse rights.
 
 ## Payments
 
@@ -316,5 +315,6 @@ Review any matches before pushing. Role names such as `service_role` in SQL and
 server-side env reads such as `Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')` are
 expected; actual key values are not.
 
-There is no license file in this starter yet. Add a `LICENSE` file before
-publishing if you want to define how others may use the repository.
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
