@@ -1,0 +1,86 @@
+# Flutter / Dart generated output
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+pubspec_overrides.yaml
+build/
+coverage/
+doc/api/
+*.dill
+*.kernel
+*.snapshot
+*.js.deps
+*.js.map
+
+# Installed packages and dependency caches
+node_modules/
+jspm_packages/
+bower_components/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+vendor/bundle/
+
+# Native and mobile build output
+android/.gradle/
+android/.kotlin/
+android/app/build/
+android/local.properties
+**/GeneratedPluginRegistrant.*
+**/.symlinks/
+**/Pods/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/ephemeral/
+ios/Pods/
+ios/.symlinks/
+macos/Flutter/ephemeral/
+macos/Pods/
+DerivedData/
+*.xcuserstate
+*.xcuserdata/
+
+# Local IDE and editor state
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Local tool state
+AGENTS.md
+docs/product-ideas.md
+docs/private/
+.serena/
+supabase/.branches/
+supabase/.temp/
+
+# Environment files and logs
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Signing keys and mobile provisioning
+*.jks
+*.keystore
+*.mobileprovision
+*.p12
+*.p8
+*.pem
+*.key
+GoogleService-Info.plist
+google-services.json

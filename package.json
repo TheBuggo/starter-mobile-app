@@ -1,0 +1,9 @@
+{
+  "name": "starter-app",
+  "private": true,
+  "scripts": {
+    "supabase:start": "scripts/supabase_local.sh start",
+    "supabase:stop": "scripts/supabase_local.sh stop",
+    "nuke": "scripts/supabase_local.sh nuke"
+  }
+}
