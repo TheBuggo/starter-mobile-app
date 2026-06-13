@@ -29,6 +29,7 @@ after the app you are building needs them.
 - Owner dashboard for screen, usage, and ad performance summaries.
 - Tools screen for optional QR scanner, camera, microphone, OAuth providers, and
   custom API connection placeholders.
+- Riverpod state-management foundation for sharing app-level state.
 - Dependency age checker that blocks registry versions published less than 30
   days ago.
 
@@ -101,6 +102,21 @@ scripts/run_app.sh all
 
 `phones` runs Android and iPhone. `desktop` runs macOS and Chrome. `all` runs
 Android, iPhone, macOS, and Chrome.
+
+## State management
+
+Riverpod is included as the starter's state-management foundation. The current
+app still keeps cross-cutting app shell state in `AppController`, then exposes
+that controller through `appControllerProvider` in `lib/app/app_providers.dart`.
+`main.dart` creates a `ProviderContainer`, overrides the provider with the
+bootstrapped controller, and `StarterApp` reads the controller from that
+container.
+
+This uses the framework-independent `riverpod` package, not `flutter_riverpod`.
+That keeps the initial integration small while giving future features a clear
+place to add providers for screen, repository, and workflow state. If a feature
+needs widgets to watch providers directly, add the Flutter Riverpod integration
+under the dependency policy and migrate that feature deliberately.
 
 ## Environment files and secrets
 

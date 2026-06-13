@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod/riverpod.dart';
 
+import '../models/theme_settings.dart';
 import '../screens/account_bootstrap_screen.dart';
 import '../screens/account_screen.dart';
 import '../screens/dashboard_screen.dart';
@@ -10,14 +12,33 @@ import '../screens/subscription_screen.dart';
 import '../screens/theme_builder_screen.dart';
 import '../screens/tools_screen.dart';
 import 'app_controller.dart';
+import 'app_providers.dart';
 import 'starter_manifest.dart';
 import 'theme_factory.dart';
-import '../models/theme_settings.dart';
 
-class StarterApp extends StatelessWidget {
-  const StarterApp({super.key, required this.controller});
+class StarterApp extends StatefulWidget {
+  const StarterApp({super.key, required this.container});
 
-  final AppController controller;
+  final ProviderContainer container;
+
+  @override
+  State<StarterApp> createState() => _StarterAppState();
+}
+
+class _StarterAppState extends State<StarterApp> {
+  late final AppController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = widget.container.read(appControllerProvider);
+  }
+
+  @override
+  void dispose() {
+    widget.container.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

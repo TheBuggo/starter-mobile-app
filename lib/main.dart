@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod/riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app/app_config.dart';
 import 'app/app_controller.dart';
+import 'app/app_providers.dart';
 import 'app/starter_app.dart';
 import 'services/account_repository.dart';
 import 'services/capability_repository.dart';
@@ -23,8 +25,8 @@ Future<void> main() async {
     anonKey: AppConfig.supabaseAnonKey,
   );
 
-  final supabase = Supabase.instance.client;
-  final controller = AppController(
+  final SupabaseClient supabase = Supabase.instance.client;
+  final AppController controller = AppController(
     accountRepository: AccountRepository(supabase),
     capabilityRepository: CapabilityRepository(supabase),
     deviceIdentityService: const DeviceIdentityService(),
@@ -37,5 +39,14 @@ Future<void> main() async {
 
   await controller.bootstrap();
 
-  runApp(StarterApp(controller: controller));
+  final ProviderContainer container = ProviderContainer(
+    overrides: [
+      appControllerProvider.overrideWith((ref) {
+        ref.onDispose(controller.dispose);
+        return controller;
+      }),
+    ],
+  );
+
+  runApp(StarterApp(container: container));
 }
